@@ -23,6 +23,7 @@
 #include "duckdb/main/config.hpp"
 #include "duckdb/main/query_profiler.hpp"
 #include "duckdb/planner/expression/bound_function_expression.hpp"
+#include "duckdb/planner/operator/logical_distinct.hpp"
 #include "duckdb/planner/operator/logical_extension_operator.hpp"
 #include "duckdb/planner/operator/list.hpp"
 #include "duckdb/execution/operator/helper/physical_verify_vector.hpp"
@@ -192,8 +193,7 @@ unique_ptr<GPUPhysicalOperator> GPUPhysicalPlanGenerator::CreatePlan(LogicalOper
 		// plan = CreatePlan(op.Cast<LogicalExplain>());
 		break;
 	case LogicalOperatorType::LOGICAL_DISTINCT:
-		throw NotImplementedException("Distinct not supported");
-		// plan = CreatePlan(op.Cast<LogicalDistinct>());
+		plan = CreatePlan(op.Cast<LogicalDistinct>());
 		break;
 	case LogicalOperatorType::LOGICAL_PREPARE:
 		throw NotImplementedException("Prepare not supported");

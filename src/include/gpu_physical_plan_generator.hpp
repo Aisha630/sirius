@@ -71,7 +71,7 @@ protected:
 	// unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalCrossProduct &op);
 	// unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalDelete &op);
 	unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalDelimGet &op);
-	// unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalDistinct &op);
+	unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalDistinct &op);
 	unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalDummyScan &expr);
 	unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalEmptyResult &op);
 	unique_ptr<GPUPhysicalOperator> CreatePlan(LogicalExpressionGet &op);
